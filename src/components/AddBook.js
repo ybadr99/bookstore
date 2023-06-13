@@ -1,30 +1,32 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addBook } from '../redux/books/booksSlice';
 
-const AddBook = ({ addBook }) => {
-  const [name, setName] = useState('');
+const AddBook = () => {
+  const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (name.trim() !== '' && author.trim() !== '') {
-      const newBooks = {
-        id: new Date().getTime(),
-        name,
-        author,
-      };
-      addBook(newBooks);
-      setName('');
-      setAuthor('');
-    }
+    const newBook = {
+      id: new Date().getTime(),
+      title,
+      author,
+      category: 'Fiction',
+    };
+    dispatch(addBook(newBook));
+    setTitle('');
+    setAuthor('');
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="book name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        placeholder="book title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
       />
       <input
         type="text"

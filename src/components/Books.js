@@ -1,25 +1,17 @@
-import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import BookItem from './BookItem';
+
 import AddBook from './AddBook';
 
 const Books = () => {
-  const [books, setBooks] = useState([]);
-
-  const addBook = (book) => {
-    setBooks([...books, book]);
-  };
-
-  const deleteBook = (id) => {
-    const newBooks = books.filter((book) => book.id !== id);
-    setBooks(newBooks);
-  };
+  const books = useSelector((state) => state.books.books);
 
   return (
     <div className="container">
-      <AddBook addBook={addBook} />
+      <AddBook />
 
       {books.map((book) => (
-        <BookItem key={book.id} book={book} deleteBook={deleteBook} />
+        <BookItem key={book.id} book={book} />
       ))}
     </div>
   );
