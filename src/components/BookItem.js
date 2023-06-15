@@ -12,7 +12,7 @@ const BookItem = ({ book }) => {
         <span className="category">{book.category}</span>
         <button
           type="button"
-          onClick={() => dispatch(removeBook({ id: book.id }))}
+          onClick={() => dispatch(removeBook(book.item_id))}
         >
           Delete
         </button>
@@ -20,5 +20,4 @@ const BookItem = ({ book }) => {
     </div>
   );
 };
-
 export default BookItem;

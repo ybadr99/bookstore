@@ -1,18 +1,16 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { useSelector } from 'react-redux';
-import BookItem from './BookItem';
 
+import BookList from './BookList';
 import AddBook from './AddBook';
 
 const Books = () => {
-  const books = useSelector((state) => state.books.books);
+  const books = useSelector((state) => state.books);
 
   return (
     <div className="container">
       <AddBook />
-
-      {books.map((book) => (
-        <BookItem key={book.id} book={book} />
-      ))}
+      <BookList {...books} />
     </div>
   );
 };

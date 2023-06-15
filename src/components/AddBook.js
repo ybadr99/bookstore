@@ -9,15 +9,17 @@ const AddBook = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newBook = {
-      id: new Date().getTime(),
-      title,
-      author,
-      category: 'Fiction',
-    };
-    dispatch(addBook(newBook));
-    setTitle('');
-    setAuthor('');
+    if (title && author) {
+      const newBook = {
+        item_id: new Date().getTime().toString(),
+        title,
+        author,
+        category: 'Fiction',
+      };
+      dispatch(addBook(newBook));
+      setTitle('');
+      setAuthor('');
+    }
   };
 
   return (
