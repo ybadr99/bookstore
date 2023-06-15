@@ -1,5 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable no-unused-vars */
 /* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
@@ -7,44 +5,32 @@ import restructureApiResponse from '../../utils/restructureApiResponse';
 
 const baseAPI = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/ATwGr9HsrW4O0MQXnRyQ/books';
 
-export const getBooks = createAsyncThunk(
-  'books/getBooks',
-  // eslint-disable-next-line consistent-return
-  async (_, _thunkAPI) => {
-    try {
-      const res = await axios.get(baseAPI);
-      return res.data || [];
-    } catch (error) {
-      console.log(error);
-    }
-  },
-);
+export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
+  try {
+    const res = await axios.get(baseAPI);
+    return res.data || [];
+  } catch (error) {
+    throw new Error(error.message);
+  }
+});
 
-export const addBook = createAsyncThunk(
-  'books/addBook',
-  async (newBook, thunkAPI) => {
-    try {
-      const res = await axios.post(baseAPI, newBook);
-      if (res.data === 'Created') {
-        return newBook;
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  },
-);
+export const addBook = createAsyncThunk('books/addBook', async (newBook) => {
+  try {
+    await axios.post(baseAPI, newBook);
+    return newBook;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+});
 
-export const removeBook = createAsyncThunk(
-  'books/removeBook',
-  async (id, thunkAPI) => {
-    try {
-      await axios.delete(`${baseAPI}/${id}`);
-      return id;
-    } catch (error) {
-      console.log(error);
-    }
-  },
-);
+export const removeBook = createAsyncThunk('books/removeBook', async (id) => {
+  try {
+    await axios.delete(`${baseAPI}/${id}`);
+    return id;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+});
 
 const initialState = {
   books: [],
@@ -56,34 +42,34 @@ const booksSlice = createSlice({
   initialState,
   extraReducers: {
     // get books
-    [getBooks.pending]: (state, actions) => {
+    [fetchBooks.pending]: (state) => {
       state.isLoading = true;
     },
 
-    [getBooks.fulfilled]: (state, actions) => {
+    [fetchBooks.fulfilled]: (state, actions) => {
       state.isLoading = false;
       const books = restructureApiResponse(actions.payload);
       state.books = books;
     },
 
-    [getBooks.rejected]: (state, actions) => {
+    [fetchBooks.rejected]: (state) => {
       state.isLoading = true;
     },
 
     // add book
-    [addBook.pending]: (state, actions) => {
+    [addBook.pending]: (state) => {
       state.isLoading = true;
     },
     [addBook.fulfilled]: (state, actions) => {
       state.isLoading = false;
       state.books.push(actions.payload);
     },
-    [addBook.rejected]: (state, actions) => {
+    [addBook.rejected]: (state) => {
       state.isLoading = false;
     },
 
     // remove book
-    [removeBook.pending]: (state, actions) => {
+    [removeBook.pending]: (state) => {
       state.isLoading = true;
     },
 
@@ -94,7 +80,7 @@ const booksSlice = createSlice({
       );
     },
 
-    [removeBook.rejected]: (state, actions) => {
+    [removeBook.rejected]: (state) => {
       state.isLoading = false;
     },
   },

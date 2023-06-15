@@ -1,12 +1,14 @@
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { getBooks } from '../redux/books/booksSlice';
+import { fetchBooks } from '../redux/books/booksSlice';
 import BookItem from './BookItem';
 
-const BookList = ({ books, isLoading }) => {
+const BookList = () => {
+  const { books, isLoading } = useSelector((state) => state.books);
+
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getBooks());
+    dispatch(fetchBooks());
   }, [dispatch]);
 
   if (isLoading) {
@@ -14,9 +16,9 @@ const BookList = ({ books, isLoading }) => {
   }
   return (
     <>
-      {books.length ? books.map((book) => (
-        <BookItem key={book.item_id} book={book} />
-      )) : 'no books found!'}
+      {books.length
+        ? books.map((book) => <BookItem key={book.item_id} book={book} />)
+        : 'no books found!'}
     </>
   );
 };
