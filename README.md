@@ -8,8 +8,10 @@
 [📗 Table of Contents](#-table-of-contents)
 
 - [📖 Book Store ](#-book-store-)
-  - [🛠 Built With ](#-built-with-)
-    - [Key Features ](#key-features-)
+  - [🛠 Built With](#built-with)
+    - [Built With](#bulit-with)
+    - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
 - [Future Features ](#future-features-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
@@ -28,9 +30,8 @@ Read a random math-related quote.
 
 ## 🛠 Built With <a name="built-with"></a>
 
-- HTML
-- CSS
-- React
+- HTML/CSS
+- React / @redux/toolkit
 
 ### Key Features <a name="key-features"></a>
 
@@ -43,6 +44,8 @@ Read a random math-related quote.
 
 - [ ] **Write unit test.**
 - [ ] **state management using Redux**
+
+## 🚀 Live Demo <a name="live-demo">https://bookstore-beige-eight.vercel.app/</a>
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -106,6 +109,10 @@ Contributions, issues, and feature requests are welcome!
 ## ⭐️ Show your support <a name="support"></a>
 
 If you like this project:thumbsup:
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+> I would like to thank Microverse team and their dedicated reviewrs
 
 <!-- LICENSE -->
 
