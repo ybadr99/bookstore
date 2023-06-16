@@ -33,12 +33,12 @@ Read a random math-related quote.
 - HTML/CSS
 - React / @redux/toolkit
 
-### Key Features <a name="key-features"></a>
+## Key Features <a name="key-features"></a>
 
 - [ ] **List books.**
 - [ ] **Add, Read, Delete and Update book.**
 
-# Future Features <a name="future-features"></a>
+## Future Features <a name="future-features"></a>
 
 - [ ] **Filter by category.**
 
