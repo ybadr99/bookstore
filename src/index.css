@@ -1,37 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+:root {
+  --primary-color: #0290ff;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 32px;
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f5f6fa;
+  padding: 4%;
+  line-height: 1;
+  font-size: 16px;
+  font-weight: 400;
 }
 
-nav .container {
+.container {
+  padding: 4%;
+  background-color: #fafafa;
+  font-family: 'Roboto Slab', serif;
+}
+
+/* NAVBAR */
+nav {
+  background-color: #fff;
+  border-bottom: 1px solid #e8e8e8;
   display: flex;
   justify-content: space-between;
-  padding: 20px 0;
+  align-items: center;
+  padding: 20px 32px;
 }
 
-a {
-  padding: 12px;
+nav .logo {
+  width: 15rem;
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-right: 20px;
+  color: var(--primary-color);
 }
 
+nav ul {
+  flex: 1;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #121212;
+  opacity: 0.5;
+  margin-right: 10px;
+}
+
+.active {
+  opacity: 1;
+}
+
+.icon-button {
+  cursor: pointer;
+  width: 2.813rem;
+  height: 2.813rem;
+  border-radius: 50%;
+  border: 1px solid #e8e8e8;
+  background-color: #fff;
+}
+
+.material-icons {
+  color: var(--primary-color);
+  font-family: 'Material Icons';
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+}
+
+/* Book Item */
 .book-item {
+  background-color: #fff;
+  border: 1px solid #e8e8e8;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
   display: flex;
+  justify-content: space-between;
+}
+
+.book-details {
+  display: flex;
+  flex-direction: column;
   gap: 16px;
 }
 
-.author {
-  font-style: italic;
+.book-title {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-form {
+.book-category {
+  color: #8a8a8a;
+  font-weight: 700;
+}
+
+.book-author {
+  color: #4386bf;
+}
+
+.book-buttons button {
+  border: none;
+  background: none;
+  color: #4386bf;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 10px;
+  border-right: 3px solid #e8e8e8;
+  padding-right: 10px;
+}
+
+.book-buttons button:last-child {
+  border: none;
+}
+
+/* PROGRESS SECTION */
+.progress-container {
+  display: flex;
+  align-items: center;
+  padding: 0 2%;
+}
+
+.circular-progress {
+  width: 80px;
+  height: 80px;
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 5px solid #307bbe;
+  border-left-color: #e8e8e8;
+  transform-origin: center;
+  transform: rotate(45deg);
+}
+
+.progress-status {
+  margin-left: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.percent-complete {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.completed-tag {
+  opacity: 0.5;
+  font-size: 18px;
+}
+
+.progress-divider {
+  width: 3px;
+  height: 80px;
+  background-color: #e8e8e8;
+  margin: 0 40px;
+}
+
+.current-chapter-container {
   display: flex;
   flex-direction: column;
-  width: 200px;
-  margin-bottom: 100px;
+  gap: 10px;
+}
+
+.current-chapter-label {
+  opacity: 0.5;
+  margin-bottom: 10px;
+}
+
+.current-chapter {
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+
+.update-progress {
+  cursor: pointer;
+  border: none;
+  background-color: var(--primary-color);
+  border-radius: 3px;
+  padding: 8px 24px;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+
+.update-progress:hover {
+  opacity: 0.8;
+}
+
+/* FORM */
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #e8e8e8;
+  margin: 40px 0;
+}
+
+.form-section {
+  margin-top: 40px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.form-section h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.18px;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.form-section form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.title-input {
+  width: 50%;
+}
+
+.author-input {
+  width: 30%;
+}
+
+input {
+  margin-right: 10px;
+  padding: 12px;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  font-size: 14px;
+  background: #fff;
+}
+
+.title-input:focus,
+.author-input:focus,
+.title-input:focus-within,
+.author-input:focus-within {
+  border-color: #0290ff;
+  outline: none;
+}
+
+.form-section button {
+  width: 20%;
+  cursor: pointer;
+  border: none;
+  background-color: var(--primary-color);
+  border-radius: 3px;
+  padding: 12px 24px;
+  letter-spacing: 0.5px;
+  color: #fff;
 }

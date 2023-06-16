@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBook } from '../redux/books/booksSlice';
 
@@ -23,21 +23,28 @@ const AddBook = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="book title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="author"
-        value={author}
-        onChange={(e) => setAuthor(e.target.value)}
-      />
-      <button type="submit">submit</button>
-    </form>
+    <section className="form-section">
+      <h3>Add New Book</h3>
+      <form onSubmit={handleSubmit}>
+        <input
+          className="title-input"
+          placeholder="Book title"
+          onChange={(e) => setTitle(e.target.value)}
+          value={title}
+        />
+
+        <input
+          className="author-input"
+          placeholder="Book author"
+          onChange={(e) => setAuthor(e.target.value)}
+          value={author}
+        />
+
+        <button className="primary-button" type="submit">
+          ADD BOOK
+        </button>
+      </form>
+    </section>
   );
 };
 

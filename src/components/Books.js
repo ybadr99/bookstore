@@ -3,8 +3,9 @@ import AddBook from './AddBook';
 
 const Books = () => (
   <div className="container">
-    <AddBook />
     <BookList />
+    <div className="divider" />
+    <AddBook />
   </div>
 );
 
