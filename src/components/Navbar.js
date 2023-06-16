@@ -3,13 +3,18 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => (
   <nav>
-    <div className="container">
-      <h1>Bookstore</h1>
-      <ul>
-        <Link to="/">Home</Link>
-        <Link to="/categories">Categories</Link>
-      </ul>
-    </div>
+    <h1 className="logo">Bookstore CMS</h1>
+    <ul>
+      <Link to="/" className="nav-item active">
+        Home
+      </Link>
+      <Link to="/categories" className="nav-item">
+        Categories
+      </Link>
+    </ul>
+    <button className="icon-button" type="button">
+      <span className="material-icons primary-color">person</span>
+    </button>
   </nav>
 );
 
