@@ -112,7 +112,7 @@ If you like this project:thumbsup:
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> I would like to thank Microverse team and their dedicated reviewrs
+> I would like to thank Microverse that inspires me this project idea
 
 <!-- LICENSE -->
 
