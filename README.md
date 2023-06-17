@@ -45,7 +45,7 @@ Read a random math-related quote.
 - [ ] **Write unit test.**
 - [ ] **state management using Redux**
 
-## 🚀 Live Demo <a name="live-demo">https://bookstore-beige-eight.vercel.app/</a>
+## 🚀 Live Demo <a name="live-demo">https://bookstore-roan-seven.vercel.app/</a>
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
