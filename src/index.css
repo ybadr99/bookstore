@@ -107,7 +107,7 @@ nav ul {
   font-weight: 700;
 }
 
-.book-author {
+.book-category {
   color: #4386bf;
 }
 
@@ -232,11 +232,12 @@ nav ul {
   width: 50%;
 }
 
-.author-input {
+.category-input {
   width: 30%;
 }
 
-input {
+input,
+select {
   margin-right: 10px;
   padding: 12px;
   border: 1px solid #e8e8e8;
@@ -246,9 +247,9 @@ input {
 }
 
 .title-input:focus,
-.author-input:focus,
+.category-input:focus,
 .title-input:focus-within,
-.author-input:focus-within {
+.category-input:focus-within {
   border-color: #0290ff;
   outline: none;
 }

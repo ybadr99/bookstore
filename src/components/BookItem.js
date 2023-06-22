@@ -7,9 +7,9 @@ const BookItem = ({ book }) => {
   return (
     <div className="book-item">
       <div className="book-details">
-        <p className="book-category">Action</p>
+        <p className="book-category">{book.category}</p>
         <h2 className="book-title">{book.title}</h2>
-        <p className="book-author">{book.author}</p>
+        {/* <p className="book-author">{book.author}</p> */}
         <div className="book-buttons">
           <button type="button" className="add-button">
             Add
